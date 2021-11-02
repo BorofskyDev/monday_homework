@@ -1,21 +1,23 @@
 n = input("Enter Pyramid Layers Here: ")
 
 def pyramid(n):
-    a = n - 1
-    for c in range(0, n):
-        for j in range(0, a):
+    layer = n - 1
+    for rows in range(0, n):
+        for value in range(0, layer):
             print(end=" ")
-        a = a - 1
-        for d in range(0, j+1):
-            print("* ", end="")
+        layer = layer - 1
+        for value in range(0, rows + 1):
+            print("X ", end="")
         
 
-#No idea if this would even work. My thought process is that since "n" is undefined, it needs to be an input. 
-#So n needs to be subtracted by one for each layer. That's a simple calculation to determine the number of layers. 
-#Then you need to calculate the width of each layer. So find the range between 0 and n (whatever was input). 
-#This is where I'm not sure if I'm correct. Create an inner loop since you need something printed to form the pyramid. 
-#You'll need to control spacing for various spacing, and I may have over complicated it. I figured find
-#the distance from 0 to a and putting a space. I couldn't figure out how to \n and get a space, but I found on GeeksforGeeks about the end function.
-#Then to shorten each layer as it looped, just make a=a-1 (a is the result of n-1, the input -1).
-#To set the columns I needed to know the number of stars across, which requires knowing the range of 0 to n, with the value changing
-#Then just print the result as stars. 
+#No idea if this works. 
+#My thought was that 
+# (1) there needs to be an input for n because it can't be infinity.
+# (2) to visualize the pyramd think of it in layers and the number of layers needs an input
+# (3) then you need to know the max number of rows across.
+# (4) but you need to know the value of the row range (layers will be added up to the input) which can only be known by the input. 
+# (5) now you need to reduce the number of layers for each loop
+# (6) lastly, you need to have the number of columns adjust to the results of the outer loop (rows in range)
+# (7) I figured out the logic part, and knew that printing "X" would be the easiest way to build. But I didn't know how to space the layers and rows
+# (8) broke down and went to w3 and discovered the "end" function and its opperation within python. Useful tool. 
+# (9) but for some reason it's not printing. I've exhausted my search on it
